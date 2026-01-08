@@ -4,7 +4,7 @@ Nota: este repo asume un workspace en `~/catkin_ws` (ROS Noetic + Ubuntu 20.04).
 ## 0) Requisitos (una sola vez por VM)
 
 ### Instalar ROS Noetic
-(Si ya tienes `ros-noetic-desktop-full`, omite este bloque)
+(Si ya se tiene `ros-noetic-desktop-full`, omitir este bloque)
 
 sudo apt update
 sudo apt install -y ros-noetic-desktop-full
@@ -37,5 +37,5 @@ source /opt/ros/noetic/setup.bash
 source ~/catkin_ws/devel/setup.bash
 rviz -d ~/catkin_ws/src/vacuum_robot_description/rviz/vacuum_robot.rviz
 
-### Alternativa: visualizar solo el modelo (sin Gazebo)
+#### Alternativa: visualizar solo el modelo (sin Gazebo)
 roslaunch vacuum_robot_description display_v2.launch
