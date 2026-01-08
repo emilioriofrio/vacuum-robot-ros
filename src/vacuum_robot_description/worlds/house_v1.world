@@ -1,0 +1,142 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="house_v1">
+
+    <include><uri>model://sun</uri></include>
+    <include><uri>model://ground_plane</uri></include>
+
+    <!-- Pared exterior: rectángulo 10 x 8 -->
+    <model name="outer_north">
+      <static>true</static>
+      <pose>0 4 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>10 0.12 1</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>10 0.12 1</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <model name="outer_south">
+      <static>true</static>
+      <pose>0 -4 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>10 0.12 1</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>10 0.12 1</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <model name="outer_east">
+      <static>true</static>
+      <pose>5 0 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.12 8 1</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>0.12 8 1</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <model name="outer_west">
+      <static>true</static>
+      <pose>-5 0 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.12 8 1</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>0.12 8 1</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <!-- Pasillo central (paredes con "puertas": dejamos huecos) -->
+    <!-- Pared interior norte (dos segmentos con hueco de puerta en el centro) -->
+    <model name="inner_north_left">
+      <static>true</static>
+      <pose>-2.5 1.5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>3 0.12 1</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>3 0.12 1</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <model name="inner_north_right">
+      <static>true</static>
+      <pose>2.5 1.5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>3 0.12 1</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>3 0.12 1</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <!-- Pared interior sur (dos segmentos con hueco de puerta) -->
+    <model name="inner_south_left">
+      <static>true</static>
+      <pose>-2.5 -1.5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>3 0.12 1</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>3 0.12 1</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <model name="inner_south_right">
+      <static>true</static>
+      <pose>2.5 -1.5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>3 0.12 1</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>3 0.12 1</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <!-- Pared vertical central (divide dos habitaciones, deja paso en medio) -->
+    <model name="inner_center_top">
+      <static>true</static>
+      <pose>0 2.75 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.12 2.5 1</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>0.12 2.5 1</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <model name="inner_center_bottom">
+      <static>true</static>
+      <pose>0 -2.75 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.12 2.5 1</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>0.12 2.5 1</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <!-- Muebles (obstáculos simples) -->
+    <model name="sofa">
+      <static>true</static>
+      <pose>-3 3 0.25 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>1.2 0.6 0.5</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>1.2 0.6 0.5</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <model name="table">
+      <static>true</static>
+      <pose>3 2 0.25 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>1.0 1.0 0.5</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>1.0 1.0 0.5</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <model name="chair_1">
+      <static>true</static>
+      <pose>2.2 1.2 0.2 0 0 0.6</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.4 0.4 0.4</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>0.4 0.4 0.4</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <model name="chair_2">
+      <static>true</static>
+      <pose>3.8 1.2 0.2 0 0 -0.6</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.4 0.4 0.4</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>0.4 0.4 0.4</size></box></geometry></visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>
+
