@@ -1,0 +1,24 @@
+# Catkin
+build/
+devel/
+install/
+logs/
+
+# ROS runtime
+.ros/
+
+# Python
+__pycache__/
+*.pyc
+
+# Editor / OS
+*.swp
+*.bak
+.DS_Store
+
+# Gazebo cache
+~/.gazebo/
+
+# RViz configs (opcional: si quieres versionarlas, quita esta línea)
+*.rviz
+

@@ -1,0 +1,24 @@
+<launch>
+  <arg name="world" default="$(find vacuum_robot_description)/worlds/min_room.world"/>
+
+  <!-- Abrir Gazebo con mundo -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world)"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+  </include>
+
+  <!-- Cargar URDF al parameter server -->
+  <param name="robot_description"
+         command="$(find xacro)/xacro '$(find vacuum_robot_description)/urdf/vacuum_robot.xacro'"/>
+
+  <!-- Publicar TF del robot -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
+  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher"/>
+
+  <!-- Spawnear el robot -->
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_vacuum_robot"
+        args="-urdf -param robot_description -model vacuum_robot -x 0 -y 0 -z 0.15"/>
+</launch>
+
