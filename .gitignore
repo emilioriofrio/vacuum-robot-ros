@@ -1,4 +1,4 @@
-# Catkin
+# Catkin generated
 build/
 devel/
 install/
@@ -11,14 +11,11 @@ logs/
 __pycache__/
 *.pyc
 
-# Editor / OS
+# OS / editor
+.DS_Store
 *.swp
 *.bak
-.DS_Store
 
-# Gazebo cache
-~/.gazebo/
-
-# RViz configs (opcional: si quieres versionarlas, quita esta línea)
-*.rviz
+# Gazebo cache (no aplica dentro del repo normalmente, pero por si acaso)
+.gazebo/
 
