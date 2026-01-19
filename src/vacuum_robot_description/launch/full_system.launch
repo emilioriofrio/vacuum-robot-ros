@@ -1,5 +1,5 @@
 <launch>
-  <arg name="world_file" default="$(find vacuum_robot_description)/worlds/house_v1.world"/>
+  <arg name="world_file" default="$(find vacuum_robot_description)/worlds/house_blocked.world"/>
   <arg name="map_file" default="$(find vacuum_robot_description)/maps/my_house.yaml"/>
 
   <include file="$(find vacuum_robot_description)/launch/spawn_in_gazebo_v2.launch"/>

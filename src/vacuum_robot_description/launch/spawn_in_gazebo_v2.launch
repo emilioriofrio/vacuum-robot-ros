@@ -1,5 +1,5 @@
 <launch>
-  <arg name="world" default="$(find vacuum_robot_description)/worlds/house_v1.world"/>
+  <arg name="world" default="$(find vacuum_robot_description)/worlds/house_blocked.world"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(arg world)"/>
@@ -15,6 +15,10 @@
   <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher"/>
 
   <node pkg="gazebo_ros" type="spawn_model" name="spawn_vacuum_robot"
-        args="-urdf -param robot_description -model vacuum_robot -x 0 -y 0 -z 0.15"/>
+        args="-urdf 
+              -param robot_description 
+              -model vacuum_robot 
+              -x 0 -y 0 -z 0.5 
+              -unpause" />
 </launch>
 

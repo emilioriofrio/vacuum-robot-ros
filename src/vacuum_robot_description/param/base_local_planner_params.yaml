@@ -31,5 +31,5 @@ TrajectoryPlannerROS:
 
   # --- TOLERANCIAS ---
   yaw_goal_tolerance: 3.14  # Más tolerante al llegar (20 grados aprox)
-  xy_goal_tolerance: 0.20   # 20 cm de margen
+  xy_goal_tolerance: 0.35   # 35 cm de margen
   latch_xy_goal_tolerance: true
