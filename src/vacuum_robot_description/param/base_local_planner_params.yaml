@@ -1,35 +1,34 @@
 TrajectoryPlannerROS:
-  # --- VELOCIDADES (Conservadoras pero funcionales) ---
-  max_vel_x: 0.22
-  min_vel_x: 0.10
-  max_vel_theta: 0.4
-  min_in_place_vel_theta: 0.3
+  # --- VELOCIDADES (MÁXIMA VELOCIDAD - Modo Turbo!) ---
+  max_vel_x: 1.0          # DUPLICADO a 1.0 m/s (¡mucho más rápido!)
+  min_vel_x: 0.1          # Aumentado a 0.1 (evita ir demasiado lento)
+  max_vel_theta: 2.0      # DUPLICADO a 2.0 rad/s (giros super rápidos)
+  min_in_place_vel_theta: 0.8  # Aumentado para giros en sitio más rápidos
 
-  # --- ACELERACIÓN (Suficiente para moverse, baja para no derrapar) ---
-  acc_lim_theta: 1.0
-  acc_lim_x: 0.5
+  # --- ACELERACIÓN (Súper agresiva para máxima respuesta) ---
+  acc_lim_theta: 3.5      # Aumentado a 3.5 (aceleración angular muy rápida)
+  acc_lim_x: 2.5          # Aumentado a 2.5 (aceleración lineal muy rápida)
   acc_lim_y: 0.0
 
-  # --- EL SECRETO DEL ÉXITO (Balanceo de pesos) ---
-  # pdist_scale 0.6 + gdist_scale 0.8 es la fórmula mágica.
-  # Le dice: "Intenta seguir la línea, pero IMPORTA MÁS AVANZAR hacia la meta".
-  pdist_scale: 0.6      # Bajamos de 3.0 a 0.6 (Libertad de movimiento)
-  gdist_scale: 0.8      # Prioridad a llegar
-  occdist_scale: 0.01   # Evitar obstáculos
+  # --- EL SECRETO DEL ÉXITO (Balanceo de pesos para VELOCIDAD) ---
+  # Reducimos pdist_scale para priorizar velocidad sobre seguir el path exactamente
+  pdist_scale: 0.4      # REDUCIDO a 0.4 (más libertad, menos curvas cerradas)
+  gdist_scale: 1.0      # AUMENTADO a 1.0 (máxima prioridad a llegar rápido)
+  occdist_scale: 0.02   # Ligeramente aumentado para seguridad a alta velocidad
   
   heading_scoring: false
   dwa: true             # Dynamic Window Approach (Mejor para evitar giros locos)
 
-  # --- PREVISIÓN ---
-  sim_time: 1.0         # Un punto medio sano
-  vx_samples: 6         # Menos muestras = cálculo más rápido en tu VM
-  vtheta_samples: 20
+  # --- PREVISIÓN (Ajustado para alta velocidad) ---
+  sim_time: 2.0            # AUMENTADO a 2.0 (más anticipación a alta velocidad)
+  vx_samples: 10           # AUMENTADO a 10 (más opciones de velocidad)
+  vtheta_samples: 20       # Mantenido (suficiente para giros)
 
   # --- ANTI-ATASCO ---
   oscillation_reset_dist: 0.05  # Si oscila 5cm, resetea el plan para desatascarse
   escape_vel: -0.1
 
-  # --- TOLERANCIAS ---
-  yaw_goal_tolerance: 3.14  # Más tolerante al llegar (20 grados aprox)
-  xy_goal_tolerance: 0.35   # 35 cm de margen
+  # --- TOLERANCIAS (Relajadas para velocidad) ---
+  yaw_goal_tolerance: 0.3      # Aumentado a 0.3 (~17 grados) - permite llegar más rápido
+  xy_goal_tolerance: 0.20      # Aumentado a 0.20m - menos tiempo ajustando posición
   latch_xy_goal_tolerance: true
