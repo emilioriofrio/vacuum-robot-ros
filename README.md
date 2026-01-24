@@ -48,13 +48,17 @@ source ~/catkin_ws/devel/setup.bash
 
 ## 🎮 Modos de Ejecución
 
-### Opción 1: Sistema Completo (Navegación Autónoma) ⭐ RECOMENDADO
+### Opción 1: Sistema Completo (Navegación Autónoma) ⭐ RECOMENDADO PARA REVISOR FINAL
 
 Inicia **Gazebo + RViz + Navegación** en un solo comando:
 
 ```bash
 source ~/catkin_ws/devel/setup.bash
 roslaunch vacuum_robot_description full_system.launch
+```
+En otra terminal, tras sourcear, ejecutar
+```bash
+rosrun vacuum_robot_description coverage_routine.py
 ```
 
 **Esto incluye:**
@@ -66,9 +70,8 @@ roslaunch vacuum_robot_description full_system.launch
 
 **Cómo usar:**
 1. Espera a que se abran Gazebo y RViz
-2. En RViz, haz clic en **"2D Nav Goal"** (flecha verde en la barra superior)
-3. Haz clic en el mapa donde quieres que vaya el robot
-4. ¡El robot navegará automáticamente evitando obstáculos!
+2. En otra terminal ejecutar rosrun vacuum_robot_description coverage_routine.py
+3. ¡El robot navegará automáticamente!
 
 ---
 
