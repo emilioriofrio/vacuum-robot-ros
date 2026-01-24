@@ -48,7 +48,7 @@ source ~/catkin_ws/devel/setup.bash
 
 ## Modos de Ejecución
 
-### Opción 1: Sistema Completo (Navegación Autónoma) ⭐ RECOMENDADO PARA REVISOR FINAL
+### Opción 1: Sistema Completo (Navegación Autónoma) RECOMENDADO PARA REVISOR FINAL
 
 Inicia **Gazebo + RViz + Navegación** en un solo comando:
 
