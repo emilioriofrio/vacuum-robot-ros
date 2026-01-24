@@ -2,7 +2,7 @@
 
 Robot aspirador autónomo con navegación en ROS Noetic + Gazebo.
 
-## 📋 Requisitos
+## Requisitos
 
 **Sistema:** Ubuntu 20.04 + ROS Noetic
 
@@ -27,7 +27,7 @@ sudo apt install -y git
 
 ---
 
-## 🚀 Instalación del Proyecto
+## Instalación del Proyecto
 
 ### 1) Clonar el repositorio
 ```bash
@@ -46,7 +46,7 @@ source ~/catkin_ws/devel/setup.bash
 
 ---
 
-## 🎮 Modos de Ejecución
+## Modos de Ejecución
 
 ### Opción 1: Sistema Completo (Navegación Autónoma) ⭐ RECOMENDADO PARA REVISOR FINAL
 
@@ -62,11 +62,11 @@ rosrun vacuum_robot_description coverage_routine.py
 ```
 
 **Esto incluye:**
-- ✅ Simulación Gazebo con el mundo `house_blocked.world`
-- ✅ Robot aspirador completamente funcional
-- ✅ Sistema de navegación autónoma (AMCL + move_base)
-- ✅ RViz con configuración de navegación
-- ✅ Mapa pre-cargado
+- Simulación Gazebo con el mundo `house_blocked.world`
+- Robot aspirador completamente funcional
+- Sistema de navegación autónoma (AMCL + move_base)
+- RViz con configuración de navegación
+- Mapa pre-cargado
 
 **Cómo usar:**
 1. Espera a que se abran Gazebo y RViz
@@ -98,9 +98,9 @@ roslaunch vacuum_robot_description display_v2.launch
 
 ---
 
-## ⚡ Parámetros de Navegación Optimizados
+## Parámetros de Navegación Optimizados
 
-El robot está configurado con **parámetros de velocidad 2x más rápidos** para navegación eficiente:
+El robot está configurado con **parámetros de velocidad más rápidos** para navegación eficiente:
 
 **Archivo:** `src/vacuum_robot_description/param/base_local_planner_params.yaml`
 
@@ -117,7 +117,7 @@ Estos valores permiten al robot moverse **rápido pero de forma segura**, balanc
 
 ---
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 vacuum_robot_description/
@@ -132,7 +132,7 @@ vacuum_robot_description/
 
 ---
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 **Gazebo no abre o crashea:**
 ```bash
@@ -141,15 +141,15 @@ roslaunch vacuum_robot_description full_system.launch
 ```
 
 **El robot no se mueve:**
-- Verifica que los topics estén publicándose: `rostopic list`
-- Revisa que `/cmd_vel` esté activo: `rostopic echo /cmd_vel`
+- Verificar que los topics estén publicándose: `rostopic list`
+- Revisar que `/cmd_vel` esté activo: `rostopic echo /cmd_vel`
 
 **Warnings de TF_REPEATED_DATA:**
 - Son normales durante la navegación, no afectan el funcionamiento
 
 ---
 
-## 📝 Notas
+## Notas
 
 - El sistema usa **AMCL** para localización
 - **move_base** maneja la planificación de rutas
